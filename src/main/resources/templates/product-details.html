@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Details</title>
+
+    <style>
+        body{
+            font-family:Arial,sans-serif;
+            background:#fff8fb;
+            margin:0;
+            padding:0;
+        }
+
+        .container{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:100vh;
+        }
+
+        .card{
+            width:450px;
+            background:white;
+            padding:25px;
+            border-radius:15px;
+            text-align:center;
+            box-shadow:0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .card img{
+            width:250px;
+            height:250px;
+            object-fit:contain;
+        }
+
+        h2{
+            color:#d63384;
+        }
+
+        .price{
+            font-size:24px;
+            font-weight:bold;
+            color:#444;
+        }
+
+        .description{
+            color:#666;
+            margin:15px 0;
+        }
+
+        .btn{
+            display:inline-block;
+            padding:12px 25px;
+            margin:10px;
+            border:none;
+            border-radius:8px;
+            color:white;
+            text-decoration:none;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        .buy{
+            background:#28a745;
+        }
+
+        .wishlist{
+            background:#d63384;
+        }
+
+        .back{
+            display:block;
+            margin-top:20px;
+            color:#d63384;
+            text-decoration:none;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+
+        <img th:src="${product.image}" alt="Product">
+
+        <h2 th:text="${product.name}"></h2>
+
+        <p><b>Brand:</b> <span th:text="${product.brand}"></span></p>
+
+        <p class="price">
+            ₹ <span th:text="${product.price}"></span>
+        </p>
+
+        <p class="description" th:text="${product.description}"></p>
+        <form th:action="@{/cart/add}" method="post">
+
+            <input type="hidden" name="productName" th:value="${product.name}">
+            <input type="hidden" name="price" th:value="${product.price}">
+            <input type="hidden" name="quantity" value="1">
+
+            <button type="submit" class="btn buy">
+                Buy Now
+            </button>
+
+        </form>
+
+
+
+
+        <form th:action="@{/wishlist/add}" method="post">
+            <input type="hidden" name="productName" th:value="${product.name}">
+            <input type="hidden" name="price" th:value="${product.price}">
+            <input type="hidden" name="image" th:value="${product.image}">
+            <button class="btn wishlist">Add to Wishlist</button>
+        </form>
+
+
+        <a href="/products" class="back">← Back to Products</a>
+
+    </div>
+</div>
+
+</body>
+</html>

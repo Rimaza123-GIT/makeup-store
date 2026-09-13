@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Product | Glow Beauty</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+            background:#fff8fb;
+        }
+
+        header{
+            background:#d63384;
+            color:white;
+            padding:18px 50px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .logo{
+            font-size:28px;
+            font-weight:bold;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin-left:20px;
+            font-weight:bold;
+        }
+
+        nav a:hover{
+            text-decoration:underline;
+        }
+
+        .container{
+            width:500px;
+            margin:40px auto;
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 5px 15px rgba(0,0,0,.2);
+        }
+
+        h2{
+            text-align:center;
+            color:#d63384;
+            margin-bottom:25px;
+        }
+
+        label{
+            display:block;
+            margin-top:15px;
+            margin-bottom:5px;
+            font-weight:bold;
+        }
+
+        input,
+        textarea{
+            width:100%;
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            font-size:15px;
+        }
+
+        textarea{
+            resize:none;
+            height:100px;
+        }
+
+        button{
+            width:100%;
+            margin-top:25px;
+            padding:14px;
+            border:none;
+            border-radius:8px;
+            background:#d63384;
+            color:white;
+            font-size:18px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#b0266d;
+        }
+
+        .back{
+            display:block;
+            text-align:center;
+            margin-top:15px;
+            color:#d63384;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        footer{
+            margin-top:40px;
+            background:#d63384;
+            color:white;
+            text-align:center;
+            padding:20px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">Glow Beauty</div>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/products">Products</a>
+        <a href="/admin">Admin</a>
+    </nav>
+
+</header>
+
+<div class="container">
+
+    <h2>Edit Product</h2>
+
+    <form th:action="@{/update}" method="post" th:object="${product}">
+
+        <input type="hidden" th:field="*{id}">
+
+        <label>Product Name</label>
+        <input type="text" th:field="*{name}" required>
+
+        <label>Brand</label>
+        <input type="text" th:field="*{brand}" required>
+
+        <label>Price</label>
+        <input type="number" th:field="*{price}" required>
+
+        <label>Image</label>
+        <input type="text" th:field="*{image}" placeholder="lipstick.jpg" required>
+
+        <label>Description</label>
+        <textarea th:field="*{description}"></textarea>
+
+        <button type="submit">Update Product</button>
+
+    </form>
+
+    <a href="/admin" class="back">← Back to Admin Panel</a>
+
+</div>
+
+<footer>
+    © 2026 Glow Beauty | All Rights Reserved
+</footer>
+
+</body>
+</html>

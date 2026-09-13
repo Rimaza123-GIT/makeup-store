@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Glow Beauty - Products</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+            background:#fff8fb;
+        }
+
+        h1{
+            text-align:center;
+            color:#d63384;
+            margin:30px 0;
+        }
+
+        .search-box{
+            text-align:center;
+            margin-bottom:25px;
+        }
+
+        .search-box input,
+        .search-box select{
+            padding:10px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            margin:5px;
+            font-size:15px;
+        }
+
+        .search-box button{
+            padding:10px 20px;
+            background:#d63384;
+            color:white;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+            width:auto;
+        }
+
+        .search-box button:hover{
+            background:#b0266d;
+        }
+
+        .container{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            gap:25px;
+            padding:20px;
+        }
+
+        .card{
+            width:250px;
+            background:white;
+            border-radius:10px;
+            box-shadow:0 5px 10px rgba(0,0,0,0.2);
+            padding:15px;
+            text-align:center;
+            transition:0.3s;
+            overflow:hidden;
+        }
+
+        .card:hover{
+            transform:translateY(-5px);
+        }
+
+        .card img{
+            width:150px;
+            height:150px;
+            object-fit:contain;
+            display:block;
+            margin:0 auto 10px;
+        }
+
+        .card h3{
+            color:#d63384;
+            margin:10px 0;
+        }
+
+        .price{
+            color:#444;
+            font-size:20px;
+            font-weight:bold;
+            margin:10px 0;
+        }
+
+        .card button{
+            width:100%;
+            padding:10px;
+            background:#d63384;
+            color:white;
+            border:none;
+            border-radius:6px;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        .card button:hover{
+            background:#b0266d;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Our Products</h1>
+
+<div class="search-box">
+
+    <form th:action="@{/products}" method="get">
+
+        <input type="text"
+               name="keyword"
+               th:value="${keyword}"
+               placeholder="Search Products...">
+
+        <select name="category">
+
+            <option value="">All Categories</option>
+
+            <option value="Lipstick" th:selected="${category=='Lipstick'}">Lipstick</option>
+
+            <option value="Foundation" th:selected="${category=='Foundation'}">Foundation</option>
+
+            <option value="Skincare" th:selected="${category=='Skincare'}">Skincare</option>
+
+            <option value="Eye Makeup" th:selected="${category=='Eye Makeup'}">Eye Makeup</option>
+
+            <option value="Face Makeup" th:selected="${category=='Face Makeup'}">Face Makeup</option>
+
+            <option value="Lip Care" th:selected="${category=='Lip Care'}">Lip Care</option>
+
+            <option value="Nails" th:selected="${category=='Nails'}">Nails</option>
+
+            <option value="Fragrance" th:selected="${category=='Fragrance'}">Fragrance</option>
+
+        </select>
+
+        <button type="submit">Search</button>
+
+    </form>
+
+</div>
+
+<div class="container">
+
+    <div class="card"
+         th:each="product : ${products}"
+         th:onclick="|window.location='/product/${product.id}'|"
+         style="cursor:pointer;">
+
+        <img th:src="@{${product.image}}" alt="Product">
+
+        <h3 th:text="${product.name}"></h3>
+
+        <p th:text="${product.brand}"></p>
+
+        <p th:text="${product.category}"></p>
+
+        <p class="price">
+            ₹ <span th:text="${product.price}"></span>
+        </p>
+
+        <form th:action="@{/cart/add}" method="post">
+
+            <input type="hidden"
+                   name="productName"
+                   th:value="${product.name}">
+
+            <input type="hidden"
+                   name="price"
+                   th:value="${product.price}">
+
+            <input type="hidden"
+                   name="quantity"
+                   value="1">
+
+            <button type="submit">Add to Cart</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

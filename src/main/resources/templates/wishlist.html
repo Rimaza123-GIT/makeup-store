@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My Wishlist</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+            background:#fff8fb;
+        }
+
+        h1{
+            text-align:center;
+            color:#d63384;
+            margin:30px 0;
+        }
+
+        .container{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            gap:25px;
+            padding:20px;
+        }
+
+        .card{
+            width:260px;
+            background:white;
+            border-radius:12px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.2);
+            padding:20px;
+            text-align:center;
+        }
+
+        .card img{
+            width:180px;
+            height:180px;
+            object-fit:contain;
+        }
+
+        .card h3{
+            color:#d63384;
+            margin:10px 0;
+        }
+
+        .price{
+            font-size:20px;
+            font-weight:bold;
+            color:#444;
+            margin:10px 0;
+        }
+
+        .remove-btn{
+            display:block;
+            width:100%;
+            padding:10px;
+            background:red;
+            color:white;
+            text-decoration:none;
+            border-radius:8px;
+            margin-top:10px;
+            font-weight:bold;
+        }
+
+        .remove-btn:hover{
+            background:darkred;
+        }
+
+        .back-btn{
+            display:block;
+            width:220px;
+            margin:30px auto;
+            padding:12px;
+            text-align:center;
+            background:#d63384;
+            color:white;
+            text-decoration:none;
+            border-radius:8px;
+            font-weight:bold;
+        }
+
+        .back-btn:hover{
+            background:#b0266d;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>My Wishlist ❤️</h1>
+
+<div class="container">
+
+    <div class="card" th:each="item : ${wishlist}">
+
+        <img th:src="${item.image}" alt="Product">
+
+        <h3 th:text="${item.productName}"></h3>
+
+        <p class="price">
+            ₹ <span th:text="${item.price}"></span>
+        </p>
+
+        <a th:href="@{/wishlist/delete/{id}(id=${item.id})}" class="remove-btn">
+            Remove
+        </a>
+
+    </div>
+
+</div>
+
+<a href="/products" class="back-btn">
+    ← Back to Products
+</a>
+
+</body>
+</html>

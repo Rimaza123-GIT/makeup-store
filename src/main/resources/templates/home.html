@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Glow Beauty</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+            background:#fff8fb;
+        }
+
+
+
+        header{
+            background:#d63384;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:18px 70px;
+            position:sticky;
+            top:0;
+            z-index:1000;
+            box-shadow:0 4px 10px rgba(0,0,0,.2);
+        }
+
+        .logo{
+            color:white;
+            font-size:30px;
+            font-weight:bold;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin-left:25px;
+            font-size:17px;
+            font-weight:bold;
+            transition:.3s;
+        }
+
+        nav a:hover{
+            color:#ffe0ef;
+        }
+
+
+
+        .hero{
+
+            height:90vh;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            flex-direction:column;
+
+            background:
+                    linear-gradient(rgba(255,245,250,.65),
+                    rgba(255,245,250,.65)),
+                    url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1500&q=80");
+
+            background-size:cover;
+            background-position:center;
+
+        }
+
+        .hero h1{
+
+            font-size:60px;
+            color:#d63384;
+            margin-bottom:20px;
+
+        }
+
+        .hero p{
+
+            font-size:22px;
+            color:#444;
+            margin-bottom:35px;
+
+        }
+
+        .btn{
+
+            background:#d63384;
+            color:white;
+            padding:15px 40px;
+            border-radius:8px;
+            text-decoration:none;
+            font-size:18px;
+            font-weight:bold;
+            transition:.3s;
+
+        }
+
+        .btn:hover{
+
+            background:#b1266f;
+
+        }
+
+        .section-title{
+
+            text-align:center;
+            color:#d63384;
+            font-size:40px;
+            margin:60px 0 40px;
+
+        }
+        .featured{
+            padding:70px 20px;
+            background:#fff;
+        }
+
+        .featured-container{
+            display:flex;
+            justify-content:center;
+            gap:30px;
+            flex-wrap:wrap;
+        }
+
+        .featured-card{
+            width:230px;
+            background:white;
+            border-radius:15px;
+            box-shadow:0 5px 15px rgba(0,0,0,.15);
+            padding:20px;
+            text-align:center;
+            transition:.3s;
+        }
+
+        .featured-card:hover{
+            transform:translateY(-8px);
+        }
+
+        .featured-card img{
+            width:170px;
+            height:170px;
+            object-fit:contain;
+        }
+
+        .featured-card h3{
+            color:#d63384;
+            margin:10px 0;
+        }
+
+        .featured-card p{
+            font-size:20px;
+            font-weight:bold;
+            margin:10px 0;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        Glow Beauty
+    </div>
+
+    <nav>
+
+        <a href="/">Home</a>
+
+        <a href="/products">Products</a>
+
+        <a href="/cart">Cart</a>
+
+        <a href="/orders">Orders</a>
+
+        <a href="/signup">Sign Up</a>
+
+        <a href="/login">Login</a>
+
+    </nav>
+
+</header>
+
+<section class="hero">
+
+    <h1>Glow Like Never Before ✨</h1>
+
+    <p>
+        Discover Premium Beauty Products For Every Skin Tone.
+    </p>
+
+    <a href="/products" class="btn">
+        Shop Now
+    </a>
+
+</section>
+
+
+<section class="featured">
+
+    <h2 class="section-title">Featured Products</h2>
+
+    <div class="featured-container">
+
+        <div class="featured-card">
+            <img src="/images/lipstick1.jpg" alt="Lipstick">
+            <h3>Lakme Matte Lipstick</h3>
+            <p>₹499</p>
+            <a href="/products" class="btn">Shop Now</a>
+        </div>
+
+        <div class="featured-card">
+            <img src="/images/foundation1.jpg" alt="Foundation">
+            <h3>Maybelline Foundation</h3>
+            <p>₹799</p>
+            <a href="/products" class="btn">Shop Now</a>
+        </div>
+
+        <div class="featured-card">
+            <img src="/images/serum1.jpg" alt="Serum">
+            <h3>Plum Vitamin C Serum</h3>
+            <p>₹599</p>
+            <a href="/products" class="btn">Shop Now</a>
+        </div>
+
+        <div class="featured-card">
+            <img src="/images/perfume1.jpg" alt="Perfume">
+            <h3>Nykaa Perfume Mist</h3>
+            <p>₹699</p>
+            <a href="/products" class="btn">Shop Now</a>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<section style="background:#ffeaf4;padding:70px 20px;">
+
+    <h2 class="section-title">Why Choose Glow Beauty?</h2>
+
+    <div style="display:flex;justify-content:center;gap:50px;flex-wrap:wrap;text-align:center;">
+
+        <div>
+            <h1>🚚</h1>
+            <h3>Free Delivery</h3>
+            <p>Fast & Safe Shipping</p>
+        </div>
+
+        <div>
+            <h1>💯</h1>
+            <h3>Original Products</h3>
+            <p>100% Genuine Beauty Products</p>
+        </div>
+
+        <div>
+            <h1>💳</h1>
+            <h3>Secure Payment</h3>
+            <p>Safe & Easy Checkout</p>
+        </div>
+
+        <div>
+            <h1>📞</h1>
+            <h3>24×7 Support</h3>
+            <p>Always Ready To Help</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<h2 class="section-title">Happy Customers</h2>
+
+<section style="display:flex;justify-content:center;gap:30px;flex-wrap:wrap;padding-bottom:60px;">
+
+    <div style="width:300px;background:white;padding:25px;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,.15);">
+        ⭐⭐⭐⭐⭐
+        <p style="margin:15px 0;">
+            Amazing quality products. I love Glow Beauty!
+        </p>
+        <b>- Aisha</b>
+    </div>
+
+    <div style="width:300px;background:white;padding:25px;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,.15);">
+        ⭐⭐⭐⭐⭐
+        <p style="margin:15px 0;">
+            Fast delivery and premium packaging.
+        </p>
+        <b>- Fathima</b>
+    </div>
+
+    <div style="width:300px;background:white;padding:25px;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,.15);">
+        ⭐⭐⭐⭐⭐
+        <p style="margin:15px 0;">
+            Highly recommended beauty store.
+        </p>
+        <b>- Sara</b>
+    </div>
+
+</section>
+
+
+
+<footer style="background:#d63384;color:white;padding:40px;text-align:center;">
+
+    <h2>Glow Beauty</h2>
+
+    <p style="margin:10px 0;">
+        Enhance Your Beauty With Confidence
+    </p>
+
+    <p>📧 support@glowbeauty.com</p>
+
+    <p>📞 +91 98765 43210</p>
+
+    <p style="margin-top:20px;">
+        © 2026 Glow Beauty. All Rights Reserved.
+    </p>
+
+</footer>
+
+</body>
+</html>

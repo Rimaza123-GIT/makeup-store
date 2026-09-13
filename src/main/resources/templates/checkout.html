@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glow Beauty | Checkout</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+            background:#fff8fb;
+        }
+
+        header{
+            background:#d63384;
+            color:white;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:18px 50px;
+        }
+
+        .logo{
+            font-size:28px;
+            font-weight:bold;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin-left:20px;
+            font-weight:bold;
+        }
+
+        nav a:hover{
+            text-decoration:underline;
+        }
+
+        .container{
+            width:450px;
+            background:white;
+            margin:40px auto;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 5px 15px rgba(0,0,0,.2);
+        }
+
+        h2{
+            text-align:center;
+            color:#d63384;
+            margin-bottom:20px;
+        }
+
+        label{
+            display:block;
+            margin-top:15px;
+            margin-bottom:5px;
+            font-weight:bold;
+            color:#444;
+        }
+
+        input,
+        textarea,
+        select{
+            width:100%;
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            font-size:15px;
+        }
+
+        textarea{
+            height:90px;
+            resize:none;
+        }
+
+        .total{
+            margin-top:20px;
+            text-align:right;
+            font-size:22px;
+            font-weight:bold;
+            color:#d63384;
+        }
+
+        button{
+            width:100%;
+            margin-top:25px;
+            padding:14px;
+            background:#d63384;
+            color:white;
+            border:none;
+            border-radius:8px;
+            font-size:18px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#b0266d;
+        }
+
+        footer{
+            margin-top:40px;
+            background:#d63384;
+            color:white;
+            text-align:center;
+            padding:20px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">Glow Beauty</div>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/products">Products</a>
+        <a href="/cart">Cart</a>
+        <a href="/orders">Orders</a>
+    </nav>
+
+</header>
+
+<div class="container">
+
+    <h2>Checkout</h2>
+
+    <form action="/placeOrder" method="post">
+
+        <label>Customer Name</label>
+        <input type="text" name="customerName" required>
+
+        <label>Phone Number</label>
+        <input type="text" name="phone" required>
+
+        <label>Delivery Address</label>
+        <textarea name="address" required></textarea>
+
+        <label>Payment Method</label>
+
+        <select name="paymentMethod" required>
+
+            <option value="">Select Payment Method</option>
+
+            <option value="Google Pay">Google Pay (GPay)</option>
+
+            <option value="PhonePe">PhonePe</option>
+
+            <option value="Paytm">Paytm</option>
+
+            <option value="Debit Card">Debit Card</option>
+
+            <option value="Credit Card">Credit Card</option>
+
+            <option value="Cash on Delivery">Cash on Delivery</option>
+
+        </select>
+
+        <div class="total">
+            Total Amount : ₹ <span th:text="${totalPrice}">0</span>
+        </div>
+
+        <button type="submit">
+            Place Order
+        </button>
+
+    </form>
+
+</div>
+
+<footer>
+
+    <p>&copy; 2026 Glow Beauty | All Rights Reserved</p>
+
+</footer>
+
+</body>
+</html>
